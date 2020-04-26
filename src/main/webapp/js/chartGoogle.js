@@ -42,10 +42,10 @@ function drawTrendlines(dataArray1) {
 
       var options = {
     	        hAxis: {
-    	          title: 'Time'
+    	          title: 'Period Time'
     	        },
     	        vAxis: {
-    	          title: 'Popularity'
+    	          title: 'Close and Open Values'
     	        },
     	        colors: ['#AB0D06', '#007329'],
     	        trendlines: {
