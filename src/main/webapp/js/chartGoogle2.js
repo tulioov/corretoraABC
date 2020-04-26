@@ -1,30 +1,32 @@
-google.charts.load('current', {'packages':['bar']});
-google.charts.setOnLoadCallback(drawStuff);
+      google.charts.load('current', {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawStuff);
 
-function drawStuff() {
-  var data = new google.visualization.arrayToDataTable([
-    ['Move', 'Percentage'],
-    ["King's pawn (e4)", 44],
-    ["Queen's pawn (d4)", 31],
-    ["Knight to King 3 (Nf3)", 12],
-    ["Queen's bishop pawn (c4)", 10],
-    ['Other', 3]
-  ]);
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Country');
+          data.addColumn('number', 'GDP');
+          data.addRows([
+            ['US', 16768100],
+            ['China', 9181204],
+            ['Japan', 4898532],
+            ['Germany', 3730261],
+            ['France', 2678455]
+          ]);
 
-  var options = {
-    width: 1000,
-    legend: { position: 'none' },
-    chart: {
-      title: 'MACD',
-      subtitle: 'EMA 9, 12 and 26' },
-    axes: {
-      x: {
-        0: { side: 'top', label: 'White to move'} // Top x-axis.
-      }
-    },
-    bar: { groupWidth: "90%" }
-  };
+         var options = {
+           title: 'MACD EMA 9, 12 and 26,',
+           width: 1000,
+           height: 300,
+           legend: 'none',
+           bar: {groupWidth: '95%'},
+           vAxis: { gridlines: { count: 4 } }
+         };
 
-  var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-  chart.draw(data, google.charts.Bar.convertOptions(options));
-};
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };

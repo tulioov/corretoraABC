@@ -69,7 +69,7 @@ tr:nth-child(even) {
 			</tr>
 			<tr>
 				<td>
-					<div id="top_x_div" class="row justify-content-center">
+					<div id="number_format_chart" class="row justify-content-center">
 						<script type="text/javascript" src="js/chartGoogle2.js"></script>
 					</div> &nbsp;
 				</td>
